@@ -10,7 +10,7 @@ export default function Banner() {
         <div className="border border-white py-2 px-6 w-fit rounded-lg text-white mt-16">Baca Sekarang!</div>
       </div>
       <div className="absolute bg-primary rounded-lg w-full h-82 z-10 mask-r-from-0% mask-r-to-80%"></div>
-      <img src="image-placeholder.png" className="h-82 w-full object-none rounded-lg" />
+      <img src="/image-placeholder.png" className="h-82 w-full object-none rounded-lg" />
     </div>
   );
 }
