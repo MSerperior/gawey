@@ -1,4 +1,6 @@
 import Card from "@/components/custom/card";
+import { ChevronRight } from "lucide-react";
+import Link from "next/link";
 import { FaChevronDown } from "react-icons/fa6";
 
 export default function News() {
@@ -26,6 +28,17 @@ export default function News() {
         <Card />
         <Card />
       </div>
+      <div className="flex justify-between items-center pb-12">
+        <div></div>
+        <Link className="rounded-lg col-start-2 px-4 py-2 my-4 w-fit bg-primary text-white flex items-center" href={"/news"}>Selanjutnya<ChevronRight size={36}/></Link>
+        <div className="flex items-center gap-4 justify-center">
+          <select className="rounded-lg border border-blue-300 text-blue-300 bg-gray-100 p-2">
+            <option>1</option>
+          </select>
+          of 20 pages
+        </div>
+      </div>
+
     </div>
   );
 }
