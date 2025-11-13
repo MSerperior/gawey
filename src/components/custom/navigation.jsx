@@ -46,12 +46,12 @@ export default function Navigation() {
 			</div>
 			<div className="flex h-20 items-center w-auto justify-between px-12 lg:px-25 shadow-md">
 				<div className="flex md:gap-12 gap-4 items-center">
-					<div>
-						<img src="gawey.svg" alt="gawey" />
-					</div>
+					<Link href={"/"}>
+						<img src="/gawey.svg" alt="gawey" />
+					</Link>
 					<div className="hidden lg:flex gap-9 text-gray-600">
 						<Link className="w-12 hover:text-blue-950 hover:font-bold" href={"/"}>Fitur</Link>
-						<Link className="w-12 hover:text-blue-950 hover:font-bold" href={"/"}>Artikel</Link>
+						<Link className="w-12 hover:text-blue-950 hover:font-bold" href={"/news"}>Artikel</Link>
 						<Link className="w-12 hover:text-blue-950 hover:font-bold" href={"/"}>Kontak</Link>
 					</div>
 					<button onClick={handleClick}

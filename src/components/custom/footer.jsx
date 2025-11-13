@@ -7,7 +7,7 @@ export default function Footer() {
 			<div className="flex justify-start py-24 px-16 lg:gap-26">
 				<div className="p-4 w-96 -mt-12">
 					<div>
-						<img src="gawey-white.svg" alt="gawey" />
+						<img src="/gawey-white.svg" alt="gawey" />
 						<p>
 							Gawey by JDS memantau kinerja karyawan bermobilitas tinggi secara real-time dan memberikan berbagai fitur HRIS untuk memudahkan personalia perusahaan dengan pengolahan data absensi kehadiran, menyimpan data karyawan, mengatur jadwal kerja, hingga manajemen izin.
 						</p>
@@ -15,8 +15,8 @@ export default function Footer() {
 					<div className="pt-12">
 						<h3 className="font-bold text-lg">Solusi cerdas untuk absensi karyawan yang modern!</h3>
 						<div className="flex flex-col sm:flex-row gap-4 pt-4">
-							<img src="get-playstore.svg" alt="Playstore" />
-							<img src="get-appstore.svg" alt="AppStore" />
+							<img src="/get-playstore.svg" alt="Playstore" />
+							<img src="/get-appstore.svg" alt="AppStore" />
 						</div>
 					</div>
 				</div>

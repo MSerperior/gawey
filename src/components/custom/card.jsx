@@ -1,6 +1,6 @@
 export default function Card() {
   return (
-    <div>
+    <div className="py-4">
       <div className="relative">
         <div className="absolute w-full rounded-lg bg-primary h-56 z-10 mask-r-from-0% mask-r-to-80%"></div>
         <img src="image-placeholder.png" className="rounded-xl h-56 w-full mb-3 z-0 object-cover"></img>

@@ -49,7 +49,7 @@ export default function Home() {
           <Card />
           <Card />
         </div>
-        <Link className="rounded-lg px-8 py-4 my-4 bg-primary text-white" href={"/"}>Lihat Semua</Link>
+        <Link className="rounded-lg px-8 py-4 my-4 bg-primary text-white" href={"/news"}>Lihat Semua</Link>
       </div>
 
       <div id="terbaru" className="flex flex-col items-start px-20">
@@ -63,7 +63,7 @@ export default function Home() {
           <MiniCard />
         </div>
 
-        <Link className="rounded-lg px-8 py-4 my-4 bg-primary text-white self-center" href={"/"}>Lihat Semua</Link>
+        <Link className="rounded-lg px-8 py-4 my-4 bg-primary text-white self-center" href={"/news"}>Lihat Semua</Link>
       </div>
     </div>
   );
