@@ -1,60 +1,74 @@
 import { SiInstagram, SiLine, SiTiktok } from "@icons-pack/react-simple-icons";
 import { CopyrightIcon, MailIcon, PhoneIcon } from "lucide-react";
+import Link from "next/link";
 
 export default function Footer() {
 	return (
-		<div className="flex flex-col from-primary to-blue-900 text-white bg-linear-to-r">
-			<div className="flex justify-start py-24 px-16 lg:gap-26">
-				<div className="p-4 w-96 -mt-12">
-					<div>
-						<img src="/gawey-white.svg" alt="gawey" />
-						<p>
-							Gawey by JDS memantau kinerja karyawan bermobilitas tinggi secara real-time dan memberikan berbagai fitur HRIS untuk memudahkan personalia perusahaan dengan pengolahan data absensi kehadiran, menyimpan data karyawan, mengatur jadwal kerja, hingga manajemen izin.
-						</p>
+		<footer>
+			<div className=" relative h-[600px] bg-linear-to-br from-primary via-primary via-10% to-purple-800 z-10">
+				<div className="relative flex gap-20 mx-24 py-12 text-white z-50">
+					<div className="w-[393px] flex flex-col justify-between h-[391px]">
+						<div className="space-y-3">
+							<img src="/gawey-white.svg" className="h-[60px]">
+							</img>
+							<p>
+								Gawey by JDS memantau kinerja karyawan bermobilitas tinggi secara real-time dan memberikan berbagai fitur HRIS untuk memudahkan personalia perusahaan dengan pengolahan data absensi kehadiran, menyimpan data karyawan, mengatur jadwal kerja, hingga manajemen izin.
+							</p>
+						</div>
+						<div className="w-[350px] space-y-5">
+							<h3 className="tracking-wider text-md font-semibold">
+								Solusi cerdas untuk absensi karyawan yang modern!
+							</h3>
+							<div className="flex gap-4">
+								<Link href="#"><img src="/get-playstore.svg" className="h-[50px]"></img></Link>
+								<Link href="#"><img src="/get-appstore.svg" className="h-[50px]"></img></Link>
+							</div>
+						</div>
 					</div>
-					<div className="pt-12">
-						<h3 className="font-bold text-lg">Solusi cerdas untuk absensi karyawan yang modern!</h3>
-						<div className="flex flex-col sm:flex-row gap-4 pt-4">
-							<img src="/get-playstore.svg" alt="Playstore" />
-							<img src="/get-appstore.svg" alt="AppStore" />
+					<div className="flex pt-12 gap-20">
+						<div className="w-[250px] space-y-5">
+							<h3 className="font-semibold text-md tracking-widest"> Hubungi Kami</h3>
+							<p className="tracking-wide">
+								Komplek Ruko Mega Grosir Cempaka Mas, Blk. A No.29, Daerah Khusus Ibukota Jakarta
+							</p>
+							<div className="flex gap-2"> <PhoneIcon /> <span>Telp :  021 - 50987388</span> </div>
+							<div className="flex gap-2"> <MailIcon /> <span>Email :  info@gawey.id</span> </div>
+							<h3 className="font-semibold tracking-widest"> Ikuti Sosial Media Kami</h3>
+							<div className="flex gap-4">
+								<Link className="bg-blue-300 p-2 w-fit rounded-lg" href="#">
+									<SiInstagram />
+								</Link>
+								<Link className="bg-blue-300 p-2 w-fit rounded-lg" href="#">
+									<SiInstagram />
+								</Link>
+								<Link className="bg-blue-300 p-2 w-fit rounded-lg" href="#">
+									<SiInstagram />
+								</Link>
+							</div>
+							<div></div>
+						</div>
+						<div className="w-[190px] space-y-3 flex flex-col tracking-widest">
+							<h3 className="font-semibold"> Informasi</h3>
+							<Link href="#">FAQ</Link>
+							<Link href="#">Terms & Condition</Link>
+							<Link href="#">Privacy & Policy</Link>
+							<Link href="#">Fitur Gawey!</Link>
+							<Link href="#">Testimoni Pengguna</Link>
+							<Link href="#">Kenapa harus Gawey?</Link>
+							<Link href="#">Biaya berlangganan</Link>
 						</div>
 					</div>
 				</div>
-				<div className="p-4 w-72">
-					<h3 className="font-bold text-lg">Hubungi Kami</h3>
-					<p className="pt-2">Komplek Ruko Mega Grosir Cempaka Mas, Blk. A No.29, Daerah Khusus Ibukota Jakarta</p>
-					<div className="flex pt-2">
-						<PhoneIcon /> Telp: 021 - 50987388
-					</div>
-					<div className="flex pt-2">
-						<MailIcon /> Email: 021 - 50987388
-					</div>
-					<p className="font-bold pt-2">Ikuti Sosial Media Kami</p>
-					<div className="flex mt-2 gap-2">
-						<div className="bg-blue-300 p-2 w-fit rounded-lg">
-							<SiLine />
-						</div>
-						<div className="bg-blue-300 p-2 w-fit rounded-lg">
-							<SiTiktok />
-						</div>
-						<div className="bg-blue-300 p-2 w-fit rounded-lg">
-							<SiInstagram />
-						</div>
-					</div>
+				<div className="absolute bottom-0 z-20 mix-blend-multiply">
+					<img src="/vector1.svg"></img>
 				</div>
-				<div className="p-4">
-					<h3 className="font-bold text-lg">Informasi</h3>
-					<p className="pt-2">Informasi</p>
-					<p className="pt-2">FAQ</p>
-					<p className="pt-2">Terms & Condition</p>
-					<p className="pt-2">Privacy & Policy</p>
-					<p className="pt-2">Fitur Gawey!</p>
-					<p className="pt-2">Testimoni Pengguna</p>
-					<p className="pt-2">Kenapa Harus Gawey?</p>
-					<p className="pt-2">Biaya Berlangganan</p>
+				<div className="absolute bottom-0 right-0 z-30">
+					<img src="/ellips.svg"></img>
+				</div>
+				<div className="absolute right-0 bottom-[130px] z-40">
+					<img src="/vector3.svg"></img>
 				</div>
 			</div>
-			<div className="text-white inline-flex gap-2 p-4 self-center"><CopyrightIcon /> 2024 PT. Jelajah Data Semesta. All Rights Reserved.</div>
-		</div>
+		</footer>
 	);
 }
