@@ -1,12 +1,63 @@
+"use client"
+
 import Banner from "@/components/custom/banner";
 import Card from "@/components/custom/card";
 import MiniCard from "@/components/custom/mini-card";
-import { CardContent } from "@/components/ui/card";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import Link from "next/link";
 import { FaMagnifyingGlass } from "react-icons/fa6";
 
+import { Suspense, useEffect, useState } from "react";
+
 export default function Home() {
+  const [news, setNews] = useState([]);
+  const [latestNews, setLatestNews] = useState([]);
+
+  const token = process.env.TOKEN;
+  const API_URL = "http://localhost:3000/api";
+
+  useEffect(() => {
+    fetchData();
+    fetchLatest();
+  }, []);
+
+  async function fetchData() {
+    try {
+      const res = await fetch(`${API_URL}/news?limit=3`, {
+        headers: {
+          "Authorization": `Bearer ${token}`,
+          "Content-Type": "application/json"
+        },
+        cache: "no-store"
+      });
+
+      let data = await res.json();
+
+      setNews(data.data);
+    } catch (error) {
+      console.log("error")
+    }
+  }
+
+  async function fetchLatest() {
+    try {
+      const res = await fetch(`${API_URL}/news?limit=6`, {
+        headers: {
+          "Authorization": `Bearer ${token}`,
+          "Content-Type": "application/json"
+        },
+        cache: "no-store"
+      });
+
+      let data = await res.json();
+
+      setLatestNews(data.data);
+    } catch (error) {
+      console.log("error")
+    }
+  }
+
+
   return (
     <div>
 
@@ -45,9 +96,11 @@ export default function Home() {
       <div id="rekomendasi" className="flex flex-col items-center bg-gray-100 px-20">
         <div className="text-3xl md:text-4xl text-blue-950 font-bold pt-12">Rekomendasi buat kamu</div>
         <div className="grid md:grid-cols-3 pt-9 gap-6">
-          <Card />
-          <Card />
-          <Card />
+          <Suspense fallback={"Loading..."}>
+            {news?.map((n, index) => (
+              <Card key={index} news={n} />
+            ))}
+          </Suspense>
         </div>
         <Link className="rounded-lg px-8 py-4 my-4 bg-primary text-white" href={"/news"}>Lihat Semua</Link>
       </div>
@@ -55,12 +108,11 @@ export default function Home() {
       <div id="terbaru" className="flex flex-col items-start px-20">
         <div className="text-3xl md:text-4xl text-blue-950 font-bold pt-12">Terbaru</div>
         <div className="grid lg:grid-cols-2 flex-wrap gap-6 pt-9">
-          <MiniCard />
-          <MiniCard />
-          <MiniCard />
-          <MiniCard />
-          <MiniCard />
-          <MiniCard />
+          <Suspense fallback={"Loading..."}>
+            {latestNews?.map((n, index) => (
+              <MiniCard key={index} news={n} />
+            ))}
+          </Suspense>
         </div>
 
         <Link className="rounded-lg px-8 py-4 my-4 bg-primary text-white self-center" href={"/news"}>Lihat Semua</Link>

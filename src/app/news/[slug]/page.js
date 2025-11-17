@@ -1,14 +1,68 @@
+"use client"
+
 import MiniCard from "@/components/custom/mini-card";
 import { SiFacebook, SiLine, SiX } from "@icons-pack/react-simple-icons";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import Link from "next/link";
+import { useParams } from "next/navigation";
+
+import { Suspense, useEffect, useState } from "react";
 
 export default function NewsDetail() {
+  const [news, setNews] = useState([]);
+  const [currentNews, setCurrentNews] = useState({});
+
+  const params = useParams();
+  const { slug } = params
+
+  const token = process.env.TOKEN;
+  const API_URL = "http://localhost:3000/api";
+
+  useEffect(() => {
+    fetchData();
+    fetchCurrentNews();
+  }, []);
+
+  async function fetchData() {
+    try {
+      const res = await fetch(`${API_URL}/news?limit=6`, {
+        headers: {
+          "Authorization": `Bearer ${token}`,
+          "Content-Type": "application/json"
+        },
+        cache: "no-store"
+      });
+
+      let data = await res.json();
+
+      setNews(data.data);
+    } catch (error) {
+      console.log("error")
+    }
+  }
+
+  async function fetchCurrentNews() {
+    try {
+      const res = await fetch(`${API_URL}/news/${slug}`, {
+        headers: {
+          "Authorization": `Bearer ${token}`,
+          "Content-Type": "application/json"
+        },
+        cache: "no-store"
+      });
+      let data = await res.json();
+      setCurrentNews(data.data);
+
+    } catch (error) {
+      console.log("error")
+    }
+  }
+
   return (
     <div>
       <div className="px-24 xl:px-70">
         <div className="pt-20">Home / Artikel / Human Resource</div>
-        <div className="pt-15 text-5xl text-blue-950 max-w-2xl">Spesial Valentine: Beli 1 Bulan Gratis 1 Bulan, Paling Hemat</div>
+        <div className="pt-15 text-5xl text-blue-950 max-w-2xl">{currentNews.news_title}</div>
         <div id="user-created-at" className="flex justify-between pt-4">
           <div className="flex gap-4">
             <div>
@@ -42,6 +96,8 @@ export default function NewsDetail() {
         </div>
         <div id="content">
           <img src="/image-placeholder.png" className="rounded-xl w-full mt-8 z-0 object-cover"></img>
+          <div dangerouslySetInnerHTML={{ __html: currentNews.news_content }}>
+          </div>
           <div className="pt-10 text-blue-950">
             <div className="text-3xl font-bold pb-7">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
             <div className="text-2xl font-bold pb-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
@@ -72,12 +128,11 @@ export default function NewsDetail() {
       <div id="terbaru" className="flex flex-col items-start px-32 bg-gray-100 mt-12 pb-12">
         <div className="text-3xl md:text-4xl text-blue-950 font-bold pt-12">Related Article</div>
         <div className="grid lg:grid-cols-2 flex-wrap gap-6 pt-9">
-          <MiniCard />
-          <MiniCard />
-          <MiniCard />
-          <MiniCard />
-          <MiniCard />
-          <MiniCard />
+          <Suspense fallback={"Loading..."}>
+            {news?.map((n, index) => (
+              <MiniCard key={index} news={n} />
+            ))}
+          </Suspense>
         </div>
       </div>
     </div>
