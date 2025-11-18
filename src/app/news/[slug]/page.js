@@ -95,29 +95,26 @@ export default function NewsDetail() {
           </div>
         </div>
         <div id="content">
-          <img src="/image-placeholder.png" className="rounded-xl w-full mt-8 z-0 object-cover"></img>
-          <div dangerouslySetInnerHTML={{ __html: currentNews.news_content }}>
+          <img src="/image-placeholder.png" className="rounded-xl w-full mt-8 mb-4 z-0 object-cover"></img>
+          <div dangerouslySetInnerHTML={{ __html: currentNews.news_content }}
+            className="prose max-w-none 
+            prose-p:text-lg prose-p:pb-4 prose-p:text-blue-950
+            prose-h2:text-3xl prose-h2:font-bold prose-h2:pb-7 prose-h2:text-blue-950
+            prose-h3:text-2xl prose-h3:font-bold prose-h3:pb-5 prose-h3:text-blue-950
+            ">
           </div>
-          <div className="pt-10 text-blue-950">
-            <div className="text-3xl font-bold pb-7">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
-            <div className="text-2xl font-bold pb-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
-            <div className="text-lg pb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non sem dignissim, malesuada purus euismod, scelerisque enim. Curabitur blandit facilisis velit nec fringilla. Curabitur viverra mattis erat, at bibendum quam tincidunt ut. Nam porta erat ut enim gravida, eu tincidunt nunc dignissim. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Sed venenatis, lorem eu ornare blandit, eros arcu finibus nisi, at lobortis nisl est tincidunt odio.</div>
-            <div className="text-lg pb-4">Sed vestibulum mauris eu odio ullamcorper, eu porttitor lectus faucibus. Proin in ornare sem, a sagittis ante. Cras molestie finibus dui vel sollicitudin. Nulla non augue sed elit semper varius egestas in quam. Aliquam interdum erat in rutrum gravida. Curabitur laoreet, massa in consequat commodo, libero sapien ultrices leo, vitae eleifend diam lectus nec justo.</div>
-          </div>
-          <div className="font-bold text-xl px-6 border-blue-300 border-l-5 mt-4">
+          <div className="font-bold text-xl px-6 border-blue-300 border-l-5 my-4">
             <span className="text-gray-600">Baca juga : </span>
             <span className="text-primary">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non sem dignissim.</span>
-          </div>
-          <div className="pt-10 text-blue-950">
-            <div className="text-3xl font-bold pb-7">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
-            <div className="text-2xl font-bold pb-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
-            <div className="text-lg pb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non sem dignissim, malesuada purus euismod, scelerisque enim. Curabitur blandit facilisis velit nec fringilla. Curabitur viverra mattis erat, at bibendum quam tincidunt ut. Nam porta erat ut enim gravida, eu tincidunt nunc dignissim. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Sed venenatis, lorem eu ornare blandit, eros arcu finibus nisi, at lobortis nisl est tincidunt odio.</div>
-            <div className="text-lg pb-4">Sed vestibulum mauris eu odio ullamcorper, eu porttitor lectus faucibus. Proin in ornare sem, a sagittis ante. Cras molestie finibus dui vel sollicitudin. Nulla non augue sed elit semper varius egestas in quam. Aliquam interdum erat in rutrum gravida. Curabitur laoreet, massa in consequat commodo, libero sapien ultrices leo, vitae eleifend diam lectus nec justo.</div>
           </div>
         </div>
         <div id="tags" className="flex items-center gap-4">
           <div className="text-gray-600">Tags</div>
-          <div className="px-2 border-2 text-blue-300 border-blue-300 rounded-lg">Human Resrouce</div>
+          <div className="flex items-center gap-2">
+            <div className="px-2 border-2 text-blue-300 border-blue-300 rounded-lg">Human Resrouce</div>
+            <div className="px-2 border-2 text-blue-300 border-blue-300 rounded-lg">Tech</div>
+            <div className="px-2 border-2 text-blue-300 border-blue-300 rounded-lg">Business</div>
+          </div>
         </div>
         <div id="navigation" className="flex justify-between pt-12 text-blue-300">
           <Link href={"/"} className="flex"><ChevronLeft />Artikel sebelumnya</Link>
